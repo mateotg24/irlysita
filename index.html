@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irlysita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="BlocksIt.js jQuery plugin Demonstration #2 Pinterest dynamic grid with CSS3 Transitions by inWebson.com"/>
+    <meta name="keywords" content="demonstration,demo,jquery,blocksit.js,css3,dynamic,grid,layout,inwebson"/>
+    <!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body id="bodyPrincipal" style="display: none;">
+    
+    
+
+    <!-- Sección de Inicio -->
+    <div id="Inicio">
+        <div class="container">
+            <h1 class="head">Irly x Matt</h1>
+            <span></span>
+            <span></span>
+            <span id="btn" class="btn-4">Playlist</span>
+            <div id="heartsContainerInicio" class="hearts-container"></div> <!-- Contenedor para los corazones del inicio -->
+        </div>
+    </div>
+
+    <!-- Sección de Playlist -->
+    <div id="PlayLIST" style="display: none;">
+        <header>
+            <nav>
+                <h1>Irly</h1>
+                <ul>
+                    <li><a href="#" class="regresarInicio">Inicio</a></li>
+                    <li><a href="#" class="plyList">Playlist</a></li>
+                    <li><a href="#" id="GaleriaPlaylist">Album</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="songsList">
+                <!-- Canciones se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+        <div id="heartsContainerPlaylist" class="hearts-container"></div> <!-- Contenedor para los corazones del playlist -->
+    </div>
+    
+    <!-- Sección de Imágenes -->
+    <div id="Imagenes" style="display: none;">
+        <header id="header2">
+            <nav>
+                <h1>Irly</h1>
+                <ul>
+                    <li><a href="#" class="regresarInicio">Inicio</a></li>
+                    <li><a href="#" class="plyListImagenes">Playlist</a></li>
+                    <li><a href="#" class="Galeria">Album</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <!-- Contenido de las Imágenes -->
+        <section id="wrapper">
+            <hgroup>
+                <h2>Fotos y Videos</h2>
+            </hgroup>
+            <div id="container2" class="blocksit-container">
+                <!-- Las imágenes se agregarán aquí dinámicamente -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="blocksit.min.js"></script>
+    <script src="script.js"></script>   
+    
+    
+    <!-- JavaScript para los corazones -->
+    <script>
+        function hearts2(containerId) {
+            const container = document.getElementById(containerId);
+            const creat = document.createElement('div');
+            creat.classList.add('hearts2');
+            creat.innerHTML = `🎀`;
+            creat.style.left = Math.random() * 100 + 'vw';
+            creat.style.animationDuration = Math.random()* 2 + 3 + 's';
+            container.appendChild(creat);
+            setTimeout(() => {
+                creat.remove();
+            }, 3000);
+        }
+
+        setInterval(() => {
+            hearts2('heartsContainerPlaylist');
+            hearts2('heartsContainerInicio');
+        }, 100);
+    </script>    
+<script>
+            // Contraseña para acceder al contenido
+const contrasenaCorrecta = "losmaslentejas";
+
+// Solicitar la contraseña al usuario utilizando una alerta
+const inputContrasena = prompt("Por favor, ingresa la contraseña para poder ver el contenido:");
+
+// Verificar si la contraseña es correcta
+if (inputContrasena === contrasenaCorrecta) {
+    // Mostrar el contenido protegido si la contraseña es correcta
+    document.getElementById("bodyPrincipal").style.display = "block";
+} else {
+    // Si la contraseña es incorrecta, mostrar un mensaje y ocultar el contenido
+    alert("Contraseña incorrecta. No puedes acceder al contenido.");
+    document.body.style.display = "none"; // Oculta todo el body
+}
+</script>
+
+</body>
+</html>
